@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-4b3=b0sb%zh)v6h99d*33yh3dnucn0*_oeww840cp+03dib9!n'
-DATABASE_URL = "postgresql://postgres:*4D3ab3C56a5gac6E*1-c31a*e3D6g25@monorail.proxy.rlwy.net:11575/railway"
+#DATABASE_URL = "postgresql://postgres:*4D3ab3C56a5gac6E*1-c31a*e3D6g25@monorail.proxy.rlwy.net:11575/railway"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -82,7 +82,14 @@ WSGI_APPLICATION = 'new_todo.wsgi.application'
     #}
 #}
 DATABASES = {
-    "default": dj_database_url.config(default=DATABASE_URL,conn_max_age=1800),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'Ae5A64fBcGDf*dca6ce6GaFcDdDC6g1D',
+        'HOST': 'roundhouse.proxy.rlwy.net',
+        'PORT': 33996,
+    }
 }
 
 
