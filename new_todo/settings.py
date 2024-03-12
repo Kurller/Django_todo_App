@@ -81,16 +81,31 @@ WSGI_APPLICATION = 'new_todo.wsgi.application'
    #     'NAME': BASE_DIR / 'db.sqlite3',
     #}
 #}
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': '4Ef62E24bfdbe*b22d3CA-e631**Bd2D',
-        'HOST': 'monorail.proxy.rlwy.net',
-        'PORT':27098,
-    }
+
+if not DEBUG:
+    DATABASES = {
+	"default": dj_database_url.parse('postgres://koladbase_user:DXKJLpTg3feCTBjL0R5h5VvkibnMnpfv@dpg-ck7avnnsasqs73a2on5g-a.oregon-postgres.render.com/koladbase')
 }
+
+
+else:
+
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+           'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+#DATABASES = {
+ #   'default': {
+  #      'ENGINE': 'django.db.backends.postgresql',
+   #     'NAME': 'railway',
+    #    'USER': 'postgres',
+     #   'PASSWORD': '4Ef62E24bfdbe*b22d3CA-e631**Bd2D',
+      #  'HOST': 'monorail.proxy.rlwy.net',
+       # 'PORT':27098,
+    #}
+#}
 
 
 # Password validation
